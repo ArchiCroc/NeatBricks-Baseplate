@@ -1,0 +1,37 @@
+{
+  "public": {
+
+  },
+  "private": {
+
+  },
+  "packages": {
+    "//accounts": "See https://docs.meteor.com/api/accounts-multi.html#AccountsCommon-config",
+    "accounts": {
+      "sendVerificationEmail": true,
+      "forbidClientAccountCreation": false,      
+      "restrictCreationByEmailDomain": null,
+      "loginExpirationInDays": 90,      
+      "oauthSecretKey": null,      
+      "passwordResetTokenExpirationInDays": 3,
+      "passwordEnrollTokenExpirationInDays": 30,
+      "ambiguousErrorMessages": false,
+      "defaultFieldSelector": { },
+      "loginTokenExpirationHours": 1,      
+      "tokenSequenceLength": 6
+    },
+    "//email": "use Node Mailer Config Settings here",
+    "email": {
+      "host": "my.smtp.host",
+        "port": 465,
+        "secure": true,
+        "auth": {
+          "user": "username",
+          "pass": "pass"
+        },
+        "tls": {
+          "rejectUnauthorized": false
+        }
+    }
+  }
+}
