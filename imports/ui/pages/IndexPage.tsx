@@ -1,7 +1,8 @@
 import React from 'react';
+import PageWrapper from '/imports/ui/components/PageWrapper';
 
 export default function IndexPage() {
   return (
-    <div>App Index Page</div>
+    <PageWrapper>App Index Page</PageWrapper>
   );
 }
