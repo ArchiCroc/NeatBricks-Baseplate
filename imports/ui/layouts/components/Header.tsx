@@ -45,7 +45,7 @@ export default function Header(/*{ children }: FooterProps */) {
             Support
           </Link>
         </nav>
-        <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+        <Button href="/signin" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
           Login
         </Button>
       </Toolbar>
