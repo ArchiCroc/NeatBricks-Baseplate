@@ -1,22 +1,16 @@
 import { Meteor } from "meteor/meteor";
+import { TimestampableBehavior } from "../../interfaces/behaviors";
+import { z } from 'zod';
+import SignUpSchema from "../schemas/SignUpSchema";
+import SignInSchema from "../schemas/SignInSchema";
+import ForgotPasswordSchema from "../schemas/ForgotPasswordSchema";
 
-export interface User extends Meteor.User {
+export type UserId = string;
 
-}
+export type User = Meteor.User & TimestampableBehavior;
 
-export interface ForgotPasswordInput {
-  email: string;
-}
+export type ForgotPasswordInput = z.infer<typeof ForgotPasswordSchema>;
 
-export interface SignInInput {
-  selector: string;
-  password: string;
-}
+export type SignInInput = z.infer<typeof SignInSchema>;
 
-export interface SignUpInput {
-  username: string;
-  email: string;
-  password: string;
-  firstName: string;
-  lastName: string;
-}
+export type SignUpInput = z.infer<typeof SignUpSchema>;
