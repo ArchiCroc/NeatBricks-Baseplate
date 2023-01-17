@@ -1,0 +1,18 @@
+_namespace: Users
+_locale: en
+
+signIn: Sign In
+signUp: Sign Up
+
+fields:
+#.label and .placeholder will fall back to .name if missing
+  selector.label: Username or Email Address
+  password.name: Password
+  confirmPassword.label: Confirm Password
+  firstName.name: First Name
+  lastName.name: Last Name
+  username.name: Username
+  email.name: Email Address
+  settings.receiveMarketingEmails.label: Receive Marketing Emails?
+
+    

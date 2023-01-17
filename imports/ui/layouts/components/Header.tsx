@@ -6,8 +6,10 @@ import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import useI18n from '/imports/ui/hooks/useI18n';
 
 export default function Header(/*{ children }: FooterProps */) {
+  const { t } = useI18n();
   return (
     <AppBar
       position="static"
@@ -17,7 +19,7 @@ export default function Header(/*{ children }: FooterProps */) {
     >
       <Toolbar sx={{ flexWrap: 'wrap' }}>
         <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-          Company name
+          {t`siteName`}
         </Typography>
         <nav>
           <Link
@@ -46,7 +48,7 @@ export default function Header(/*{ children }: FooterProps */) {
           </Link>
         </nav>
         <Button href="/signin" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-          Login
+          {t`Users.signIn`}
         </Button>
       </Toolbar>
     </AppBar>
