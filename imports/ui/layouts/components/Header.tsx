@@ -7,9 +7,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import useI18n from '/imports/ui/hooks/useI18n';
+import { useUser } from 'meteor/react-meteor-accounts';
+import UserMenu from './UserMenu';
 
 export default function Header(/*{ children }: FooterProps */) {
   const { t } = useI18n();
+  const user = useUser();
+  console.log({ user })
   return (
     <AppBar
       position="static"
@@ -18,7 +22,7 @@ export default function Header(/*{ children }: FooterProps */) {
       sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
     >
       <Toolbar sx={{ flexWrap: 'wrap' }}>
-        <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1, textDecoration: 'none', }} component={Link} href="/">
           {t`siteName`}
         </Typography>
         <nav>
@@ -47,9 +51,10 @@ export default function Header(/*{ children }: FooterProps */) {
             Support
           </Link>
         </nav>
-        <Button href="/signin" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-          {t`Users.signIn`}
-        </Button>
+        {user == null ? (
+          <Button href="/signin" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+            {t`Users.signIn`}
+          </Button>) : <UserMenu user={user} />}
       </Toolbar>
     </AppBar>
   );

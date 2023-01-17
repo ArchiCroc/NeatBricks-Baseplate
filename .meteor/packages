@@ -24,3 +24,4 @@ universe:i18n
 zodern:types
 accounts-base
 accounts-password
+react-meteor-accounts

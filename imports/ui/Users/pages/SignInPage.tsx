@@ -14,13 +14,29 @@ import Typography from '@mui/material/Typography';
 import Form from '/imports/ui/components/Form';
 import SignInSchema from '/imports/common/Users/schemas/SignInSchema';
 import useI18n from '/imports/ui/hooks/useI18n';
+import { useSnackbar } from 'notistack';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignInPage() {
 
   const { t } = useI18n('Users');
+  const navigate = useNavigate();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
+  function handleSuccess() {
+    enqueueSnackbar(t`signInSuccess`, { variant: 'success' });
+    navigate(window._afterLoginPath || '/');
+    window._afterLoginPath = undefined;
+  }
 
   const handleSubmit = (model: any) => {
-    console.log(model);
+    Meteor.loginWithPassword(model.selector, model.password, (error?: Error) => {
+      if (error) {
+        enqueueSnackbar(error.message, { variant: 'error' });
+      } else {
+        handleSuccess();
+      }
+    });
   };
 
   return (

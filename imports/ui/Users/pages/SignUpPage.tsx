@@ -32,6 +32,7 @@ export default function SignUpPage() {
   const handleSubmit = (model: any) => {
     Accounts.createUser(
       {
+        username: model.username,
         email: model.email,
         password: model.password,
         profile: {

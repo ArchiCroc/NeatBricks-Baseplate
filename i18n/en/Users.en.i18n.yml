@@ -3,11 +3,15 @@ _locale: en
 
 signIn: Sign In
 signUp: Sign Up
+signOut: Sign Out
 forgotPassword: Forgot password?
 createAccount: Don't have an account? Sign Up!
 alreadyHaveAccount: Already have an account? Sign In!
+profile: Profile
 
 signUpSuccess: Thanks for Signing Up!
+signInSuccess: Welcome Back!
+signOutSuccess: You were successfully logged out.
 
 fields:
 #.label and .placeholder will fall back to .name if missing
@@ -26,4 +30,11 @@ SignInPage:
 
 SignUpPage: 
   title: Sign Up
+
+SignOutPage: 
+  title: Signed Out
+  description: Thanks for visiting!
+
+ProfilePage: 
+  title: Edit Profile
 

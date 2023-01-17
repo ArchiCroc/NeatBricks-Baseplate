@@ -16,7 +16,7 @@
       "passwordResetTokenExpirationInDays": 3,
       "passwordEnrollTokenExpirationInDays": 30,
       "ambiguousErrorMessages": false,
-      "defaultFieldSelector": { },
+      "defaultFieldSelector": { "username": 1 },
       "loginTokenExpirationHours": 1,      
       "tokenSequenceLength": 6
     },
