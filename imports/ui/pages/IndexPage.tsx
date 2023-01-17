@@ -9,7 +9,7 @@ import useI18n from '/imports/ui/hooks/useI18n';
 
 export default function IndexPage() {
 
-  const { t } = useI18n('indexPage');
+  const { t } = useI18n('IndexPage');
 
 
   return (

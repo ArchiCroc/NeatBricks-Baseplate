@@ -2,6 +2,6 @@ _locale: en
 
 siteName: Baseplate
 
-indexPage:
+IndexPage:
   title: Welcome to Baseplate
   description: This is the start of Matthew Doll's new App Framework

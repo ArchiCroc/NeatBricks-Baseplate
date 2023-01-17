@@ -13,8 +13,11 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Form from '/imports/ui/components/Form';
 import SignInSchema from '/imports/common/Users/schemas/SignInSchema';
+import useI18n from '/imports/ui/hooks/useI18n';
 
 export default function SignInPage() {
+
+  const { t } = useI18n('Users');
 
   const handleSubmit = (model: any) => {
     console.log(model);
@@ -51,9 +54,9 @@ export default function SignInPage() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              {t`SignInPage.title`}
             </Typography>
-            <Form schema={SignInSchema} onSubmit={handleSubmit}>
+            <Form schema={SignInSchema} i18nModule="Users.fields" onSubmit={handleSubmit}>
               {/* <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}> */}
               <TextField
                 name="selector"
@@ -75,17 +78,17 @@ export default function SignInPage() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                {t`signIn`}
               </Button>
               <Grid container>
                 <Grid item xs>
                   <Link href="/forgot-password" variant="body2">
-                    Forgot password?
+                    {t`forgotPassword`}
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link href="/signup" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                    {t`createAccount`}
                   </Link>
                 </Grid>
               </Grid>

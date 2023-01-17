@@ -3,6 +3,9 @@ _locale: en
 
 signIn: Sign In
 signUp: Sign Up
+forgotPassword: Forgot password?
+createAccount: Don't have an account? Sign Up!
+alreadyHaveAccount: Already have an account? Sign In!
 
 fields:
 #.label and .placeholder will fall back to .name if missing
@@ -13,6 +16,12 @@ fields:
   lastName.name: Last Name
   username.name: Username
   email.name: Email Address
-  settings.receiveMarketingEmails.label: Receive Marketing Emails?
+  settings.receiveMarketingEmails.label:  I want to receive inspiration, marketing promotions and updates via email.
+  rememberMe.label: Remember Me?
 
-    
+SignInPage: 
+  title: Sign In
+
+SignUpPage: 
+  title: Sign Up
+

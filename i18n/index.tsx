@@ -9,6 +9,7 @@ i18n.setOptions({
   open: '${',
   hostUrl: Meteor.absoluteUrl('/'),
   defaultLocale: 'en',
+  hideMissing: true,
 });
 
 i18n.setLocale('en-US');
