@@ -3,6 +3,8 @@ import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import ErrorBoundary from '/imports/ui/components/ErrorBoundary';
+import { SnackbarProvider } from 'notistack'
+
 
 import theme from './theme';
 import Footer from '../components/Footer';
@@ -15,14 +17,16 @@ interface DefaultLayoutProps {
 export default function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
     <ThemeProvider theme={theme}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      {/* <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} /> */}
-      <CssBaseline />
-      <ErrorBoundary>
-        <Header />
-        {children}
-        <Footer />
-      </ErrorBoundary>
+      <SnackbarProvider>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        {/* <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} /> */}
+        <CssBaseline />
+        <ErrorBoundary>
+          <Header />
+          {children}
+          <Footer />
+        </ErrorBoundary>
+      </SnackbarProvider>
     </ThemeProvider>
   );
 }

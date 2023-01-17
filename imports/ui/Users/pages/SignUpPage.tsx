@@ -1,4 +1,5 @@
 import React from 'react';
+import { Accounts } from 'meteor/accounts-base';
 import PageWrapper from '/imports/ui/components/PageWrapper';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -13,14 +14,43 @@ import Typography from '@mui/material/Typography';
 import Form from '/imports/ui/components/Form';
 import SignUpSchema from '/imports/common/Users/schemas/SignUpSchema';
 import useI18n from '/imports/ui/hooks/useI18n';
+import { useNavigate } from 'react-router-dom';
+import { useSnackbar } from 'notistack';
 
 
 export default function SignUpPage() {
 
   const { t } = useI18n('Users');
+  const navigate = useNavigate();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
+  function handleSuccess() {
+    enqueueSnackbar(t`signUpSuccess`, { variant: 'success' });
+    navigate('/');
+  }
 
   const handleSubmit = (model: any) => {
-    console.log(model);
+    Accounts.createUser(
+      {
+        email: model.email,
+        password: model.password,
+        profile: {
+          firstName: model.firstName,
+          lastName: model.lastName,
+          settings: {
+            marketingEmails: model.marketingEmails,
+          },
+        },
+
+      },
+      (error) => {
+        if (error) {
+          enqueueSnackbar(error.message, { variant: 'error' });
+        } else {
+          handleSuccess()
+        }
+      },
+    );
   };
 
   return (

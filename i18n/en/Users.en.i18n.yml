@@ -7,6 +7,8 @@ forgotPassword: Forgot password?
 createAccount: Don't have an account? Sign Up!
 alreadyHaveAccount: Already have an account? Sign In!
 
+signUpSuccess: Thanks for Signing Up!
+
 fields:
 #.label and .placeholder will fall back to .name if missing
   selector.label: Username or Email Address
